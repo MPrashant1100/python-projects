@@ -1,9 +1,6 @@
 from fastapi import FastAPI
+from app.routes import expenses
 
 app = FastAPI()
 
-@app.get("/")
-def root():
-    return {
-        "message": "FastAPI server is running 🚀"
-        }
+app.include_router(expenses.router)
